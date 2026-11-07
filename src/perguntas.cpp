@@ -36,21 +36,26 @@ int carregarPerguntas(Pergunta perguntas[]) {
 }
 
 // Função principal de execução da partida
-void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
+void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ, const JogadorCadastro *cadastro) {
     if (totalP == 0) {
         printf("\n[AVISO] Nenhuma pergunta disponivel para jogar!\n");
         return;
     }
 
     Jogador novo;
-    printf("\n=== NOVA PARTIDA ===\n");
-    printf("Digite o seu nome: ");
-    fgets(novo.nome, TAMANHO_NOME, stdin);
-    novo.nome[strcspn(novo.nome, "\n")] = 0; // Remove a quebra de linha
+    // Copia os dados do cadastro para a struct da partida
+    strncpy(novo.nome, cadastro->nome, TAMANHO_NOME - 1);
+    novo.nome[TAMANHO_NOME - 1] = '\0';
 
+    strncpy(novo.apelido, cadastro->apelido, TAMANHO_NOME - 1);
+    novo.apelido[TAMANHO_NOME - 1] = '\0';
+
+    novo.idade = cadastro->idade;
     novo.acertos = 0;
     novo.total = totalP;
     char resposta;
+
+    printf("\n=== PARTIDA INICIADA PARA: %s (%s) ===\n", cadastro->nome, cadastro->apelido);
 
     for (int i = 0; i < totalP; i++) {
         printf("\n----------------------------------------\n");
@@ -62,7 +67,6 @@ void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
         printf("Sua resposta (A/B/C/D): ");
         scanf(" %c", &resposta);
 
-        // Converte letras minusculas para maiusculas se necessario
         if (resposta >= 'a' && resposta <= 'z') {
             resposta -= 32;
         }
@@ -75,15 +79,13 @@ void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
         }
     }
 
-    // Calculo do percentual de acertos
     novo.percentual = ((float)novo.acertos / novo.total) * 100.0;
 
     printf("\n========================================\n");
-    printf("Fim do jogo, %s!\n", novo.nome);
+    printf("Fim do jogo, %s!\n", novo.apelido);
     printf("Acertos: %d/%d (%.2f%%)\n", novo.acertos, novo.total, novo.percentual);
     printf("========================================\n");
 
-    // Atualiza o vetor de histórico em memória
     historico[*totalJ] = novo;
     (*totalJ)++;
 }

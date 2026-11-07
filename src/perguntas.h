@@ -1,6 +1,7 @@
 #ifndef QUIZ_H
 #define QUIZ_H
 
+#include "jogador.h"
 // Constantes globais do projeto
 #define MAX_PERGUNTAS 50
 #define MAX_JOGADORES 100
@@ -20,12 +21,7 @@ typedef struct {
 
 // ponteiros
 int carregarPerguntas(Pergunta perguntas[]);
-int carregarHistorico(Jogador historico[]);
-void salvarPartida(Jogador j);
-
 // jogo
 void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ);
-void ordenarRanking(Jogador historico[], int qtd); // Bubble Sort manual
-void exibirRanking(Jogador historico[], int qtd);
 
 #endif

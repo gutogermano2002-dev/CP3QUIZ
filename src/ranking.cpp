@@ -43,24 +43,40 @@ void exibirRanking(const Jogador historico[], int qtd) {
     }
     printf("=============================================\n");
 }
+
 int carregarHistorico(Jogador historico[]) {
     FILE *arq = fopen("historico.txt", "r");
     if (arq == NULL) {
-        return 0; // Ficheiro ainda nao existe
+        return 0;
     }
 
     int count = 0;
     while (count < MAX_JOGADORES &&
-           fscanf(arq, " %[^;];%d;%d;%f\n",
+           fscanf(arq, " %[^;];%[^;];%d;%d;%d;%f\n",
                   historico[count].nome,
+                  historico[count].apelido,
+                  &historico[count].idade,
                   &historico[count].acertos,
                   &historico[count].total,
-                  &historico[count].percentual) == 4) {
+                  &historico[count].percentual) == 6) {
         count++;
                   }
 
-    fclose(arq); // Fechamento obrigatorio
+    fclose(arq);
     return count;
+}
+
+// Grava a partida e o cadastro no historico.txt
+void salvarPartida(Jogador j) {
+    FILE *arq = fopen("historico.txt", "a");
+    if (arq == NULL) {
+        printf("[ERRO] Nao foi possivel abrir historico.txt para escrita.\n");
+        return;
+    }
+
+    fprintf(arq, "%s;%s;%d;%d;%d;%.2f\n",
+            j.nome, j.apelido, j.idade, j.acertos, j.total, j.percentual);
+    fclose(arq);
 }
 
 void salvarPartida(Jogador j) {

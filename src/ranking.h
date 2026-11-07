@@ -5,7 +5,7 @@
 #ifndef RANKING_H
 #define RANKING_H
 
-#include "jogador.h" // Importa a struct Jogador
+#include "jogador.h"
 
 // Protótipos das funções de ranking
 void ordenarRanking(Jogador historico[], int qtd);
