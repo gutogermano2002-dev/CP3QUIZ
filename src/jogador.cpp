@@ -5,6 +5,31 @@
 #include <stdio.h>
 #include "jogador.h"
 
+
+void cadastrarJogador(JogadorCadastro *jogador) {
+    if (jogador == NULL) return; // Validação contra NULL
+
+    printf("\n=== CADASTRO DE JOGADOR ===\n");
+
+    // Leitura do nome (permite espaços)
+    printf("Digite o nome: ");
+    fgets(jogador->nome, TAMANHO_TEXTO, stdin);
+    jogador->nome[strcspn(jogador->nome, "\n")] = 0; // Remove a quebra de linha
+
+    // Leitura do apelido (permite espaços)
+    printf("Digite o apelido: ");
+    fgets(jogador->apelido, TAMANHO_TEXTO, stdin);
+    jogador->apelido[strcspn(jogador->apelido, "\n")] = 0; // Remove a quebra de linha
+
+    // Leitura da idade
+    printf("Digite a idade: ");
+    scanf("%d", &jogador->idade);
+
+    // Limpeza do buffer do teclado
+    while (getchar() != '\n');
+
+    printf(">> Cadastro efetuado com sucesso!\n");
+}
 // Exibe os dados cadastrais do jogador
 void exibirDados(const JogadorCadastro *jogador) {
     if (jogador == NULL) return; // Boa prática: validação contra NULL
