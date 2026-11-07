@@ -25,9 +25,9 @@ typedef struct {
     int total;
     float percentual;
 } Jogador;
-
-void exibirDados(JogadorCadastro *jogador);
-void exibirDadosdeJogador(Jogador *jogador);
+void cadastrarJogador(JogadorCadastro *jogador);
+void exibirDados(const JogadorCadastro *jogador);
+void exibirDadosdeJogador(const Jogador *jogador);
 
 
 #endif //CP3QUIZ_JOGADOR_H
