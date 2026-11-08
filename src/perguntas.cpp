@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "quiz.h"
+#include "perguntas.h"
+#include "jogador.h"
+
 
 // Função para carregar as perguntas do ficheiro de texto
 int carregarPerguntas(Pergunta perguntas[]) {
@@ -35,22 +37,24 @@ int carregarPerguntas(Pergunta perguntas[]) {
     return count;
 }
 
-// Função principal de execução da partida
-void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
+// Executa a partida utilizando os dados do cadastro do jogador
+void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ, const JogadorCadastro *cadastro) {
     if (totalP == 0) {
         printf("\n[AVISO] Nenhuma pergunta disponivel para jogar!\n");
         return;
     }
 
     Jogador novo;
-    printf("\n=== NOVA PARTIDA ===\n");
-    printf("Digite o seu nome: ");
-    fgets(novo.nome, TAMANHO_NOME, stdin);
-    novo.nome[strcspn(novo.nome, "\n")] = 0; // Remove a quebra de linha
+
+    // Copia apenas o nome (ou apelido) do cadastro para o registo da partida
+    strncpy(novo.nome, cadastro->nome, TAMANHO_NOME - 1);
+    novo.nome[TAMANHO_NOME - 1] = '\0';
 
     novo.acertos = 0;
     novo.total = totalP;
     char resposta;
+
+    printf("\n=== PARTIDA INICIADA PARA: %s (%s) ===\n", cadastro->nome, cadastro->apelido);
 
     for (int i = 0; i < totalP; i++) {
         printf("\n----------------------------------------\n");
@@ -62,7 +66,7 @@ void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
         printf("Sua resposta (A/B/C/D): ");
         scanf(" %c", &resposta);
 
-        // Converte letras minusculas para maiusculas se necessario
+        // Normaliza minusculas para maiusculas
         if (resposta >= 'a' && resposta <= 'z') {
             resposta -= 32;
         }
@@ -76,14 +80,14 @@ void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ) {
     }
 
     // Calculo do percentual de acertos
-    novo.percentual = ((float)novo.acertos / novo.total) * 100.0;
+    novo.percentual = ((float)novo.acertos / novo.total) * 100.0f;
 
     printf("\n========================================\n");
     printf("Fim do jogo, %s!\n", novo.nome);
     printf("Acertos: %d/%d (%.2f%%)\n", novo.acertos, novo.total, novo.percentual);
     printf("========================================\n");
 
-    // Atualiza o vetor de histórico em memória
+    // Adiciona ao historico na RAM
     historico[*totalJ] = novo;
     (*totalJ)++;
 }

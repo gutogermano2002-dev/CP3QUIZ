@@ -2,9 +2,11 @@
 #define QUIZ_H
 
 // Constantes globais do projeto
+
 #define MAX_PERGUNTAS 50
 #define MAX_JOGADORES 100
 #define TAMANHO_TEXTO 100
+#include "jogador.h"
 
 
 // pergunta
@@ -24,7 +26,7 @@ int carregarHistorico(Jogador historico[]);
 void salvarPartida(Jogador j);
 
 // jogo
-void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ);
+void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ, const JogadorCadastro *cadastro);
 void ordenarRanking(Jogador historico[], int qtd); // Bubble Sort manual
 void exibirRanking(Jogador historico[], int qtd);
 

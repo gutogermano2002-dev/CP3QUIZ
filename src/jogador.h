@@ -25,8 +25,8 @@ typedef struct {
     int total;
     float percentual;
 } Jogador;
-
-void exibirDados(JogadorCadastro *jogador);
+void cadastrarJogador(JogadorCadastro *jogador);
+void exibirDados(const JogadorCadastro *jogador);
 void exibirDadosdeJogador(Jogador *jogador);
 
 

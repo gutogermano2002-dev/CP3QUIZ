@@ -8,8 +8,8 @@
 #include "jogador.h" // Importa a struct Jogador
 
 // Protótipos das funções de ranking
-void ordenarRanking(Jogador historico[], int qtd);
-void exibirRanking(const Jogador historico[], int qtd);
+void ordenarRanking(Jogador historico[], int totalJ);
+void exibirRanking(Jogador historico[], int totalJ);
 int carregarHistorico(Jogador historico[]);
 void salvarPartida(Jogador j);
 

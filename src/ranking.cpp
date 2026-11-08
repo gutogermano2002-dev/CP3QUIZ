@@ -3,15 +3,18 @@
 //
 
 #include "ranking.h"
+#include "perguntas.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 
 
-void ordenarRanking(Jogador historico[], int qtd) {
+void ordenarRanking(Jogador historico[], int totalJ) {
     int i, j;
     Jogador aux;
 
-    for (i = 0; i < qtd - 1; i++) {
-        for (j = 0; j < qtd - i - 1; j++) {
+    for (i = 0; i < totalJ - 1; i++) {
+        for (j = 0; j < totalJ                    - i - 1; j++) {
             // Compara o percentual: se o atual for menor que o proximo, troca
             if (historico[j].percentual < historico[j + 1].percentual) {
                 aux = historico[j];
@@ -21,8 +24,8 @@ void ordenarRanking(Jogador historico[], int qtd) {
         }
     }
 }
-void exibirRanking(const Jogador historico[], int qtd) {
-    if (qtd == 0) {
+void exibirRanking( Jogador historico[], int totalJ) {
+    if (totalJ == 0) {
         printf("\nNenhum jogo registado no historico ainda.\n");
         return;
     }
@@ -33,7 +36,7 @@ void exibirRanking(const Jogador historico[], int qtd) {
     printf("%-3s | %-20s | %-7s | %-10s\n", "Pos", "Nome", "Acertos", "Percentual");
     printf("---------------------------------------------\n");
 
-    for (int i = 0; i < qtd; i++) {
+    for (int i = 0; i < totalJ; i++) {
         printf("%-3d | %-20s | %2d/%-4d | %6.2f%%\n",
                i + 1,
                historico[i].nome,
