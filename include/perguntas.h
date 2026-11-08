@@ -25,6 +25,9 @@ int carregarPerguntas(Pergunta perguntas[]);
 int carregarHistorico(Jogador historico[]);
 void salvarPartida(Jogador j);
 
+//adcionar perguntas
+void cadastrarPergunta(Pergunta perguntas[], int *totalP);
+void salvarPergunta(Pergunta p);
 // jogo
 void jogar(Pergunta perguntas[], int totalP, Jogador historico[], int *totalJ, const JogadorCadastro *cadastro);
 void ordenarRanking(Jogador historico[], int qtd); // Bubble Sort manual

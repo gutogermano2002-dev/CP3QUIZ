@@ -9,3 +9,6 @@ add_executable(CP3QUIZ
         src/perguntas.cpp
         src/ranking.cpp
 )
+target_include_directories(CP3QUIZ PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)

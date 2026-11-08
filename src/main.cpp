@@ -26,9 +26,10 @@ int main() {
         printf("           QUIZ INTEGRADOR EM C         \n");
         printf("========================================\n");
         printf("1. Jogar Quiz (Cadastrar, Jogar & Salvar)\n");
-        printf("2. Ver Ranking Ordenado (Bubble Sort)\n");
-        printf("3. Ver Dados do Jogador Atual\n");
-        printf("4. Diagnostico de Dados Carregados\n");
+        printf("2. Cadastrar Nova Pergunta\n");
+        printf("3. Ver Ranking Ordenado (Bubble Sort)\n");
+        printf("4. Ver Dados do Jogador Atual\n");
+        printf("5. Diagnostico de Dados Carregados\n");
         printf("0. Sair\n");
         printf("========================================\n");
         printf("Escolha uma opcao: ");
@@ -56,12 +57,17 @@ int main() {
                 break;
 
             case 2:
+                // Cadastra uma nova pergunta e atualiza totalP
+                cadastrarPergunta(perguntas, &totalP);
+                break;
+
+            case 3:
                 // Ordena por percentual antes de mostrar na tela
                 ordenarRanking(historico, totalJ);
                 exibirRanking(historico, totalJ);
                 break;
 
-            case 3:
+            case 4:
                 if (temCadastro) {
                     exibirDados(&cadastroAtual);
                 } else {
@@ -69,7 +75,7 @@ int main() {
                 }
                 break;
 
-            case 4:
+            case 5:
                 printf("\n--- DIAGNOSTICO ---\n");
                 printf("Perguntas lidas do ficheiro: %d/%d\n", totalP, MAX_PERGUNTAS);
                 printf("Partidas lidas do historico: %d/%d\n", totalJ, MAX_JOGADORES);

@@ -47,7 +47,7 @@ void exibirRanking( Jogador historico[], int totalJ) {
     printf("=============================================\n");
 }
 int carregarHistorico(Jogador historico[]) {
-    FILE *arq = fopen("historico.txt", "r");
+    FILE *arq = fopen("data/historico.txt", "r");
     if (arq == NULL) {
         return 0; // Ficheiro ainda nao existe
     }
@@ -67,7 +67,7 @@ int carregarHistorico(Jogador historico[]) {
 }
 
 void salvarPartida(Jogador j) {
-    FILE *arq = fopen("historico.txt", "a");
+    FILE *arq = fopen("data/historico.txt", "a");
     if (arq == NULL) {
         printf("[ERRO] Nao foi possivel abrir historico.txt para escrita.\n");
         return;

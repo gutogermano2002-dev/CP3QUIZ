@@ -2,8 +2,8 @@
 // Created by Paola on 07/11/2026.
 //
 
-#include <stdio.h>
 #include "jogador.h"
+#include <stdio.h>
 
 #include <cstring>
 

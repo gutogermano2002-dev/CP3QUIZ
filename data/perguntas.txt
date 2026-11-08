@@ -1,0 +1,4 @@
+Quando foi criado a lingugem C?;1.972;2002;1.998;2015;A
+
+Java ‚ uma linguagem compilada ?;nao;sim;‚ uma linuagem interpretada;nao e uma linguagem;B
+ C e considerada uma linguagem baixo nivel ?;nao;sim;nao e uma linguagem;e uma linguagem interpretada;B
