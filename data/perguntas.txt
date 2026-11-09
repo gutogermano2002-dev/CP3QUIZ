@@ -1,8 +1,6 @@
 Quando foi criado a lingugem C?;1.972;2002;1.998;2015;A
 
 Java ‚ uma linguagem compilada ?;nao;sim;‚ uma linuagem interpretada;nao e uma linguagem;B
- C e considerada uma linguagem baixo nivel ?;nao;sim;nao e uma linguagem;e uma linguagem interpretada;B
-onexao bluetooth e uma conexao?;man;pan;wan;lan;B
-onexao bluetooth ‚ uma conexao?;wan;pan;lan;man;B
-ython ‚ uma linguagem?;compilada;interpretada;nenhuma das alternativas;‚ um framework;B
-uantos e 1 + 1?;2;3;4;5;A
+
+ual o valor de 1 + 1 ?;2;1;0;5;A
+ual o alor de 2 + 2 ?;4;2;1;3;A

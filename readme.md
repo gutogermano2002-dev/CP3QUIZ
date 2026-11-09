@@ -1,6 +1,6 @@
 # 🧠 Quiz Game (CP3 Quiz)
 
-> 🎥 **Vídeo de Demonstração:** [Clique aqui para assistir à apresentação do código e funcionamento](https://drive.google.com/file/d/1_k8vrJXzWMCbxTSddFchiLGQpYbmd58v/view?usp=sharing)
+> 🎥 **Vídeo de Demonstração:** [Clique aqui para assistir à apresentação do código e funcionamento](https://drive.google.com/file/d/1gCTnYtrPQV4f27Z5RBc-n3nhCCctiJBp/view?usp=sharing)
 
 ---
 
