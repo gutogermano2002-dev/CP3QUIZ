@@ -1,2 +1,6 @@
 Gustavo ;2;3;66.67
 Gustavo;2;3;66.67
+Gustavo;3;5;60.00
+Gustavo;4;5;80.00
+Gustavo;2;6;33.33
+Gabriel;3;6;50.00
